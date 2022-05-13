@@ -34,6 +34,9 @@ class Public(object):
         return base_dir
 
     def get_file_name(self,file):
+        """
+        获取文件名称
+        """
         filename = os.path.split(os.path.abspath(file))[1].strip('.py')
         logger.info(filename)
         return filename
@@ -41,7 +44,7 @@ class Public(object):
 
     def gen_unittest_report(self,suite,file):
         """
-        通过接收生成报告的方法
+        生成单元测试报告
         :param suite:用来接收要运行的测试套件
         :param name:接收要执行的文件名
         :return:
