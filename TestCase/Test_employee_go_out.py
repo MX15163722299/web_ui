@@ -130,6 +130,9 @@ class TestEmployeeGoOut(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    # 使用defaultTestLoader调用加载测试套件的方法将当前测试用例类的所有用例加载进suite
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestEmployeeGoOut)
+    # 获取当前文件的绝对路径
     file = os.path.abspath(__file__)
+    # 生成当前用例文件的测试报告
     Public().gen_unittest_report(suite, file)

@@ -32,9 +32,11 @@ def BaseDriver():
     #判断config配置是否需要有界面运行
     if gui == 'yes' or gui == 'YES':
         logger.info('chrome 有界面运行')
+        # 添加浏览器启动参数
         opt.add_experimental_option('useAutomationExtension', False)
         opt.add_experimental_option("excludeSwitches", ['enable-automation'])
         opt.add_argument('--start-maximized')
+        # 启动浏览器
         driver = webdriver.Chrome(options=opt)
     else:
         #无界面参数
@@ -44,6 +46,7 @@ def BaseDriver():
         opt.add_experimental_option("excludeSwitches", ['enable-automation'])
         #初始最大化参数
         opt.add_argument('--start-maximized')
+        # 启动浏览器
         driver = webdriver.Chrome(options=opt)
 
     url = rc.get_driver('url')

@@ -44,7 +44,7 @@ class Public(object):
 
     def gen_unittest_report(self,suite,file):
         """
-        生成单元测试报告
+        生成用例执行测试报告
         :param suite:用来接收要运行的测试套件
         :param name:接收要执行的文件名
         :return:
