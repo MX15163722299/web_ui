@@ -1,10 +1,6 @@
 
 '''
 
-编写人：
-    梁超
-编写日期：
-    2020年7月2日
 
 实现功能：
 
@@ -21,7 +17,7 @@
 
 import os,math
 import time
-from HTMLTestRunner_old import HTMLTestRunner
+from HTMLTestRunner import HTMLTestReportCN
 from Common.Log import logger
 
 class Public(object):
@@ -54,7 +50,7 @@ class Public(object):
         report_dir = self.get_basedir() + "\\" + "TestReport\\"
         report = report_dir + str(name) + "_Report.html"
         file = open(report, 'wb')
-        runner = HTMLTestRunner(stream=file, description='UI自动化测试报告', title=name+'.html')
+        runner = HTMLTestReportCN(stream=file, description='UI自动化测试报告', title=name+'.html')
         runner.run(suite)
         file.close()
 

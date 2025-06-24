@@ -1,10 +1,5 @@
 """
 
-编写人：
-    梁超
-编写日期：
-    2020年7月15日
-
 
 功能描述：框架的入口文件，主要实现框架的功能集成，报告的输出，邮件的发送或通知等，后续根据需求进行持续优化
 
@@ -37,7 +32,7 @@ def get_test_list():
     return t_list
 
 
-def run_test(name):
+def run_test(filename):
     """
     多线程调用的目标函数
     :param name: 用来接收传入的i---用例文件名称
@@ -46,9 +41,9 @@ def run_test(name):
     #通过控制信号量，来控制同时启动的线程最大数量，with是上下文管理器，可以引用主线程里面的变量
     with pool_sema:
         print('run py start')
-        logger.info("python %s%s " % (case_dir,name))
-        # 命令行执行python执行xxpy文件的命令
-        subprocess.run("python %s%s " % (case_dir,name))
+        logger.info("python %s%s " % (case_dir,filename))
+        # 命令行执行python执行xxpy文件的命令(os.system())
+        subprocess.run("python %s%s" % (case_dir,filename))
         print('run py end')
 
 
@@ -70,7 +65,7 @@ if __name__ == '__main__':
         # 创建线程，传递被执行方法run_test，和参数i---每个用例文件名称
         t = threading.Thread(target=run_test, args=(i,), name='Thread' + str(test_list.index(i)))
         # 设置守护线程
-        t.setDaemon(True)
+        # t.setDaemon(True)
         # 追加进线程对象列表
         tlist.append(t)
 

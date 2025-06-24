@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Test_login.html</title>
-    <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
+    <meta name="generator" content="HTMLTestReportCN 0.8.3"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -16,7 +16,6 @@ table       { font-size: 100%; }
 .heading {
     margin-top: 0ex;
     margin-bottom: 1ex;
-    font-size: 18px;
 }
 .heading .description {
     margin-top: 4ex;
@@ -36,25 +35,24 @@ table       { font-size: 100%; }
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">Test_login.html</h1>
 <p class='attribute'><strong>测试人员 : </strong> QA</p>
-<p class='attribute'><strong>开始时间 : </strong> 2020-07-24 13:42:40</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:44.715361</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 1，错误 1，通过率= 50.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2024-04-14 18:28:36</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:10.999459</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 2，错误 2，通过率= 0.00%</p>
 
 <p class='description'>UI自动化测试报告</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(4)'>概要{ 50.00% }</a>
-<a class="btn btn-warning" href='javascript:showCase(2)'>错误{ 1 }</a>
+<a class="btn btn-primary" href='javascript:showCase(4)'>概要{ 0.00% }</a>
+<a class="btn btn-success" href='javascript:showCase(0)'>通过{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(0)'>通过{ 1 }</a>
+<a class="btn btn-warning" href='javascript:showCase(2)'>错误{ 2 }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
 <col align='left' />
-<col align='right' />
 <col align='right' />
 <col align='right' />
 <col align='right' />
@@ -70,74 +68,94 @@ table       { font-size: 100%; }
     <td>详细</td>
 </tr>
 
-<tr class='errorClass'>
+<tr class='warning'>
     <td>TestLogin</td>
     <td class="text-center">2</td>
-    <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">2</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
-
 </tr>
 
-<tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_login_normal1: 测试普通员工的外出申请流程</div></td>
-    <td colspan='5' align='center'><button id='btn_pt1_1' type="button"  class="btn-xs" disabled="disabled" data-toggle="collapse" data-target='#div_pt1_1'>通过</button></td>
-</tr>
-
-<tr id='ft1_2' class='none'>
-    <td class='errorCase'><div class='testcase'>test_login_normal2: 测试部门负责人含以上的</div></td>
-    <td colspan='5' align='left'>
+<tr id='et1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_login_normal1: 测试普通员工的外出申请流程</div></td>
+    <td colspan='5' align='center'>
     <!--默认收起output信息 -Findyou
-    <button id='btn_ft1_2' type="button"  class="btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
-    <div id='div_ft1_2' class="collapse">  -->
-
+    <button id='btn_et1_1' type="button"  class="btn-xs collapsed" data-toggle="collapse" data-target='#div_et1_1'>错误</button>
+    <div id='div_et1_1' class="collapse">  -->
     <!-- 默认展开output信息 -Findyou -->
-    <button id='btn_ft1_2' type="button"  class="btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
-    <div id='div_ft1_2' class="collapse in">
-    <pre style="overflow-y:scroll; overflow-x:hidden;height:300px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    <button id='btn_et1_1' type="button"  class="btn-xs" data-toggle="collapse" data-target='#div_et1_1'>错误</button>
+    <div id='div_et1_1' class="collapse in">
+    <pre>
     
-ft1_2: Traceback (most recent call last):
-  File "E:\work\AutoTest\trunk\OA_AutoTesting\TestCase\Test_login.py", line 39, in test_login_normal2
+et1_1: Traceback (most recent call last):
+  File "D:/code/SeleniumUI/TestCase/Test_login.py", line 28, in test_login_normal1
     self.driver = BaseDriver()
-  File "E:\work\AutoTest\trunk\OA_AutoTesting\Common\BaseDriver.py", line 43, in BaseDriver
+  File "D:\code\SeleniumUI\Common\BaseDriver.py", line 50, in BaseDriver
     driver = webdriver.Chrome(options=opt)
-  File "C:\Program Files\python3.7\lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 81, in __init__
-    desired_capabilities=desired_capabilities)
-  File "C:\Program Files\python3.7\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 157, in __init__
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\chrome\webdriver.py", line 76, in __init__
+    RemoteWebDriver.__init__(
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 157, in __init__
     self.start_session(capabilities, browser_profile)
-  File "C:\Program Files\python3.7\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 252, in start_session
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 252, in start_session
     response = self.execute(Command.NEW_SESSION, parameters)
-  File "C:\Program Files\python3.7\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
     self.error_handler.check_response(response)
-  File "C:\Program Files\python3.7\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
     raise exception_class(message, screen, stacktrace)
-selenium.common.exceptions.SessionNotCreatedException: Message: session not created
-from tab crashed
-  (Session info: headless chrome=84.0.4147.89)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 123.0.6312.59 with binary path C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chrome.exe
 
 
 
     </pre>
     </div>
     </td>
-    <td align="right">
-        <a hidden="hidden" href="">
-            <img   src="" height="622px" width="350px"/>
-        </a>
-    </td>
 </tr>
 
+<tr id='et1_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_login_normal2: 测试部门负责人含以上的</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起output信息 -Findyou
+    <button id='btn_et1_2' type="button"  class="btn-xs collapsed" data-toggle="collapse" data-target='#div_et1_2'>错误</button>
+    <div id='div_et1_2' class="collapse">  -->
+    <!-- 默认展开output信息 -Findyou -->
+    <button id='btn_et1_2' type="button"  class="btn-xs" data-toggle="collapse" data-target='#div_et1_2'>错误</button>
+    <div id='div_et1_2' class="collapse in">
+    <pre>
+    
+et1_2: Traceback (most recent call last):
+  File "D:/code/SeleniumUI/TestCase/Test_login.py", line 39, in test_login_normal2
+    self.driver = BaseDriver()
+  File "D:\code\SeleniumUI\Common\BaseDriver.py", line 50, in BaseDriver
+    driver = webdriver.Chrome(options=opt)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\chrome\webdriver.py", line 76, in __init__
+    RemoteWebDriver.__init__(
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python38\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 114
+Current browser version is 123.0.6312.59 with binary path C:\Users\Administrator\AppData\Local\Google\Chrome\Application\chrome.exe
 
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
 
 <tr id='total_row' class="text-center info">
     <td>总计</td>
     <td>2</td>
-    <td>1</td>
     <td>0</td>
-    <td>1</td>
-    <td>通过率：50.00%</td>
-    <td> <a href="" target="_blank"></a></td>
+    <td>0</td>
+    <td>2</td>
+    <td>通过率：0.00%</td>
 </tr>
 </table>
 
@@ -149,11 +167,9 @@ from tab crashed
 <script language="javascript" type="text/javascript">
 output_list = Array();
 // 修改按钮颜色显示错误问题 --Findyou v0.8.2.3
-
 $("button[id^='btn_pt']").addClass("btn btn-success");
 $("button[id^='btn_ft']").addClass("btn btn-danger");
 $("button[id^='btn_et']").addClass("btn btn-warning");
-
 /*level
 增加分类并调整，增加error按钮事件 --Findyou v0.8.2.3
 0:Pass    //pt none, ft hiddenRow, et hiddenRow
@@ -162,6 +178,7 @@ $("button[id^='btn_et']").addClass("btn btn-warning");
 3:All     //pt none, ft none, et none
 4:Summary //all hiddenRow
 */
+//add Error button event --Findyou v0.8.2.3
 function showCase(level) {
     trs = document.getElementsByTagName("tr");
     for (var i = 0; i < trs.length; i++) {
@@ -195,22 +212,22 @@ function showCase(level) {
     //加入【详细】切换文字变化 --Findyou
     detail_class=document.getElementsByClassName('detail');
 	//console.log(detail_class.length)
-    if (level == 3) {
-        for (var i = 0; i < detail_class.length; i++){
-            detail_class[i].innerHTML="收起"
-        }
-    }
-    else{
-            for (var i = 0; i < detail_class.length; i++){
-            detail_class[i].innerHTML="详细"
-        }
-    }
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
 }
+//add Error button event --Findyou v0.8.2.3
 function showClassDetail(cid, count) {
     var id_list = Array(count);
     var toHide = 1;
     for (var i = 0; i < count; i++) {
-        //ID修改 点 为 下划线 -Findyou
         tid0 = 't' + cid.substr(1) + '_' + (i+1);
         tid = 'f' + tid0;
         tr = document.getElementById(tid);
@@ -247,6 +264,5 @@ function html_escape(s) {
     return s;
 }
 </script>
-
 </body>
 </html>

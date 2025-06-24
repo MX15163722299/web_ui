@@ -1,10 +1,5 @@
 '''
 
-编写人：
-    梁超
-编写日期：
-    2020年7月2日
-
 实现功能：
     登录界面的测试用例
 
@@ -26,7 +21,7 @@ class TestLogin(unittest.TestCase):
     def test_login_normal1(self):
         """测试普通员工的外出申请流程"""
         self.driver = BaseDriver()
-        self.url = 'xxxxx'
+        self.url = 'https://www.baidu.com'
         self.driver.get(self.url)
         login_page = LoginPage(self.driver)
         login_page.login()
@@ -47,7 +42,7 @@ class TestLogin(unittest.TestCase):
 
 if __name__ == '__main__':
     # 使用defaultTestLoader调用加载测试套件的方法将当前测试用例类的所有用例加载进suite
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestEmployeeGoOut)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TestLogin)
     # 获取当前文件的绝对路径
     file = os.path.abspath(__file__)
     # 生成当前用例文件的测试报告
