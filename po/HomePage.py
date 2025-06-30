@@ -16,10 +16,10 @@
 '''
 
 from selenium.webdriver.common.by import By
-from PO.BasePage import BasePage
-from Common.BaseDriver import BaseDriver
-from Common.Log import logger
-from PO.LoginPage import LoginPage
+from po.BasePage import BasePage
+from common.base_driver import BaseDriver
+from common.log import logger
+from po.LoginPage import LoginPage
 
 
 class HomePage(BasePage):

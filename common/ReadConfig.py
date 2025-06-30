@@ -9,7 +9,7 @@
 '''
 import configparser
 import os
-from Common.Public import Public
+from common.public import Public
 
 class ReadConfig(object):
     def __init__(self):

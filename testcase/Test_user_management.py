@@ -11,14 +11,14 @@
 import time
 
 import os,unittest
-from Common.Log import logger
-from Common.Public import Public
-from Common.BaseDriver import BaseDriver
-from PO.LoginPage import LoginPage
-from PO.HomePage import HomePage
-from PO.InitiatePage import InitiatePage
-from PO.HOME.PersonnelOffice.InitiateProcess.EmpolyeeGoOutPage import EmployeeGoOutPage
-from PO.HOME.SystemSetting.UserManagementPage import UserManagementPage
+from common.log import logger
+from common.public import Public
+from common.base_driver import BaseDriver
+from po.LoginPage import LoginPage
+from po.HomePage import HomePage
+from po.InitiatePage import InitiatePage
+from po.HOME.PersonnelOffice.InitiateProcess.EmpolyeeGoOutPage import EmployeeGoOutPage
+from po.HOME.SystemSetting.UserManagementPage import UserManagementPage
 
 class TestUserManagement(unittest.TestCase):
 

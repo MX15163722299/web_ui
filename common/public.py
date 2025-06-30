@@ -18,7 +18,7 @@
 import os,math
 import time
 from HTMLTestRunner import HTMLTestReportCN
-from Common.Log import logger
+from common.log import logger
 
 class Public(object):
 
@@ -47,7 +47,7 @@ class Public(object):
         """
         # 报告
         name = self.get_file_name(file)
-        report_dir = self.get_basedir() + "\\" + "TestReport\\"
+        report_dir = self.get_basedir() + "\\" + "testreport\\"
         report = report_dir + str(name) + "_Report.html"
         file = open(report, 'wb')
         runner = HTMLTestReportCN(stream=file, description='UI自动化测试报告', title=name+'.html')

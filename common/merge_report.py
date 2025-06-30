@@ -17,8 +17,8 @@
 '''
 
 import re, os
-from Common.Public import Public
-from Common.Log import logger
+from common.public import Public
+from common.log import logger
 
 # 定义报告模板头部信息
 head = """
@@ -169,8 +169,8 @@ class MergeReport(object):
     准备要提取的目标报告
     """
 
-    _template = Public().get_basedir() + '\\' + 'TestReport\\' + 'template.html'
-    _report_dir = Public().get_basedir() + '\\' + 'TestReport\\'
+    _template = Public().get_basedir() + '\\' + 'testreport\\' + 'template.html'
+    _report_dir = Public().get_basedir() + '\\' + 'testreport\\'
     _report_list = []
 
     """方法"""

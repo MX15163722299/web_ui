@@ -13,13 +13,13 @@
 '''
 
 from selenium.webdriver.common.by import By
-from PO.BasePage import BasePage
-from Common.BaseDriver import BaseDriver
-from Common.Log import logger
+from po.BasePage import BasePage
+from common.base_driver import BaseDriver
+from common.log import logger
 from selenium.webdriver.support.ui import Select
 import time,datetime,re
-from PO.LoginPage import LoginPage
-from PO.HomePage import HomePage
+from po.LoginPage import LoginPage
+from po.HomePage import HomePage
 
 
 class MyApplicationPage(BasePage):

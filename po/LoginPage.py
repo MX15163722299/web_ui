@@ -15,9 +15,9 @@
 
 '''
 from selenium.webdriver.common.by import By
-from PO.BasePage import BasePage
-from Common.BaseDriver import BaseDriver
-from Common.Log import logger
+from po.BasePage import BasePage
+from common.base_driver import BaseDriver
+from common.log import logger
 
 
 class LoginPage(BasePage):

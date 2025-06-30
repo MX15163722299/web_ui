@@ -12,15 +12,15 @@
 import threading
 import time
 
-from Common.Public import Public
-from Common.Log import logger
+from common.public import Public
+from common.Log import logger
 import os,subprocess
-from Common.MergeReport import MergeReport
+from common.merge_report import MergeReport
 
 
 
 cur_dir = Public().get_basedir()
-case_dir = cur_dir + "\\" + 'TestCase\\'
+case_dir = cur_dir + "\\" + 'testcase\\'
 
 
 def get_test_list():

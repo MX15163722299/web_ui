@@ -12,11 +12,10 @@
 
 '''
 
-
+from common.log import logger
 from selenium.webdriver.common.by import By
-from PO.BasePage import BasePage
-from Common.BaseDriver import BaseDriver
-from Common.Log import logger
+from po.BasePage import BasePage
+from common.base_driver import BaseDriver
 from selenium.webdriver.support.ui import Select
 import time,datetime,re
 # from wqrfnium.wqrfnium_api import *

@@ -9,10 +9,10 @@
 '''
 
 import os
-from Common.Log import logger
-from Common.Public import Public
-from Common.BaseDriver import BaseDriver
-from PO.LoginPage import LoginPage
+from common.log import logger
+from common.public import Public
+from common.base_driver import BaseDriver
+from po.LoginPage import LoginPage
 import unittest
 
 class TestLogin(unittest.TestCase):

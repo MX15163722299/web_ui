@@ -16,17 +16,17 @@
 import time
 
 import os,unittest
-from Common.Log import logger
-from Common.Public import Public
-from Common.BaseDriver import BaseDriver
-from PO.LoginPage import LoginPage
-from PO.HomePage import HomePage
-from PO.InitiatePage import InitiatePage
-from PO.HOME.PersonnelOffice.InitiateProcess.EmpolyeeGoOutPage import EmployeeGoOutPage
-from PO.HOME.PersonnelOffice.MyApplication.MyApplicationPage import MyApplicationPage
-from PO.HOME.SystemSetting.UserManagementPage import UserManagementPage
-from PO.HOME.PersonnelOffice.MyToDoPage import MyToDoPage
-from PO.HOME.PersonnelOffice.ProcessCenterPage import ProcessCenterPage
+from common.log import logger
+from common.public import Public
+from common.base_driver import BaseDriver
+from po.LoginPage import LoginPage
+from po.HomePage import HomePage
+from po.InitiatePage import InitiatePage
+from po.HOME.PersonnelOffice.InitiateProcess.EmpolyeeGoOutPage import EmployeeGoOutPage
+from po.HOME.PersonnelOffice.MyApplication.MyApplicationPage import MyApplicationPage
+from po.HOME.SystemSetting.UserManagementPage import UserManagementPage
+from po.HOME.PersonnelOffice.MyToDoPage import MyToDoPage
+from po.HOME.PersonnelOffice.ProcessCenterPage import ProcessCenterPage
 
 
 class TestPersonalWork(unittest.TestCase):

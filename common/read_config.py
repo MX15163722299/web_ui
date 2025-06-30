@@ -35,14 +35,22 @@ class ReadConfig:
         return self.conf.get(section,option)
 
     def get_config(self,*args):
-        # print(args)
-        # print(args[0])
+        print(args)
+        print(args[0])
+        print(args[1])
+
         if len(args) == 1:
+            return self.conf.items(args[0])
+        elif args[1].lower() == 'all':
             return self.conf.items(args[0])
         else:
             return self.conf.get(args[0],args[1])
+
+
 if __name__ == '__main__':
     re = ReadConfig()
     # print(re.get_options("mysql"))
-    print(re.get_option("mysql","host"))
+    print(re.get_option("driver","gui"))
+    # print(re.get_config("driver","gui",'url'))
+    print(re.get_config("driver","all"))
     # print(re.get_config("email","sender"))
