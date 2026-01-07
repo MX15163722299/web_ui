@@ -1,88 +1,83 @@
-'''
-
-
-实现功能：封装用例依赖的driver
-
-    1.方法：BaseDriver
-        1.1 准备浏览器，设置driver的参数（无界面/取消自动化提示）
-        1.2 根据config.ini配置文件读取driver配置是否需要有界面运行
-        1.3 返回diver对象，提供给测试用例调用
-
-'''
-
-# 导入所需的模块
-from selenium import webdriver  # Selenium WebDriver 用于浏览器自动化
-from common.log import logger    # 自定义日志模块
-import time                     # 时间模块（虽然未使用，但可以保留）
-from selenium.webdriver.chrome.options import Options  # 配置 Chrome 浏览器选项
-# from common.ReadConfig import ReadConfig  # 读取配置文件的自定义类
-from common.read_config import ReadConfig  # 读取配置文件的自定义类
-import os                       # 操作系统接口模块，用于路径和文件操作
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from common.log import logger
+from common.read_config import ReadConfig
+import os
+import time
 
 
 def BaseDriver():
-    """准备对外依赖的driver"""
+    """准备对外依赖的 driver（Selenium 3.141.0 专用）"""
 
-    # 初始化 Chrome 浏览器选项
     opt = Options()
-
-    # 创建 ReadConfig 实例，用于读取配置文件中的参数
     rc = ReadConfig()
 
-    # 从配置文件中读取是否启用 GUI（有界面）模式
-    gui = rc.get_config('driver','gui')
+    gui = str(rc.get_config('driver', 'gui')).strip().lower()  # yes/no
 
-    # macOS 上配置 Chrome 可执行文件路径
-    # 如果 chrome_path_mac 存在，则设置 binary_location
-    chrome_path_mac = "/Applications/chrome-mac-119/chrome-mac-119.app/Contents/MacOS/Google Chrome for Testing"
-    if os.path.exists(chrome_path_mac):
-        opt.binary_location = chrome_path_mac
+    # ✅ Chrome for Testing（你已安装成功）
+    CHROME_BIN = "/Applications/Chrome-Auto.app/Contents/MacOS/Google Chrome for Testing"
+    if not os.path.exists(CHROME_BIN):
+        raise FileNotFoundError(f"未找到 Chrome 可执行文件：{CHROME_BIN}")
+    opt.binary_location = CHROME_BIN
+    logger.info(f"使用 Chrome for Testing: {CHROME_BIN}")
 
-    # 根据配置决定是有界面还是无头运行
-    if gui.lower() == 'yes':
-        logger.info('chrome 有界面运行')
-        # 添加实验性选项：禁用自动化扩展提示
-        opt.add_experimental_option('useAutomationExtension', False)
-        # 排除自动化相关的开关提示
-        opt.add_experimental_option("excludeSwitches", ['enable-automation'])
-        # 启动时最大化窗口
-        opt.add_argument('--start-maximized')
+    # ✅ chromedriver（你已安装成功）
+    CHROMEDRIVER = "/Users/leomeng/tools/chromedriver/143/chromedriver"
+    if not os.path.exists(CHROMEDRIVER):
+        raise FileNotFoundError(f"未找到 chromedriver：{CHROMEDRIVER}")
+
+    # ✅ 每次启动都用“独立 profile”，避免被占用/脏数据导致闪退
+    # GUI 模式尤其重要，否则很容易 session not created
+    profile_dir = f"/Users/leomeng/chrome-profile-auto-143-{int(time.time())}"
+    os.makedirs(profile_dir, exist_ok=True)
+    opt.add_argument(f"--user-data-dir={profile_dir}")
+
+    # 通用稳定参数
+    opt.add_argument("--no-first-run")
+    opt.add_argument("--disable-default-apps")
+    opt.add_argument("--disable-extensions")
+    opt.add_argument("--disable-popup-blocking")
+    opt.add_experimental_option("excludeSwitches", ["enable-automation"])
+    opt.add_experimental_option("useAutomationExtension", False)
+
+    if gui == "yes":
+        logger.info("chrome 有界面运行")
+        opt.add_argument("--start-maximized")
     else:
-        logger.info('chrome 无头运行')
-        # 启用无头模式（不显示浏览器界面）
-        opt.add_argument('--headless')
-        # 禁用沙箱模式（适用于某些环境如 Docker 或 CI）
-        opt.add_argument('--no-sandbox')
-        # 禁用 /dev/shm 的使用（避免共享内存不足问题）
-        opt.add_argument('--disable-dev-shm-usage')
-        # 启动时最大化窗口
-        opt.add_argument('--start-maximized')
-        # 禁用自动化扩展提示
-        opt.add_experimental_option('useAutomationExtension', False)
-        # 排除自动化相关的开关提示
-        opt.add_experimental_option("excludeSwitches", ['enable-automation'])
+        logger.info("chrome 无头运行")
+        # Selenium 3 更稳的 headless 写法（别用 headless=new）
+        opt.add_argument("--headless")
+        opt.add_argument("--window-size=1920,1080")
+        opt.add_argument("--no-sandbox")
+        opt.add_argument("--disable-dev-shm-usage")
 
-    # 在 Mac 上需要显式指定 chromedriver 路径
-    from selenium.webdriver.chrome.service import Service
-    service = Service("/usr/local/bin/chromedriver")
+    # ✅ 开启 chromedriver log（定位 session not created 的关键证据）
+    driver_log = f"/Users/leomeng/chromedriver-143-{int(time.time())}.log"
+    logger.info(f"chromedriver 日志输出到: {driver_log}")
 
-    # 创建 Chrome WebDriver 实例
-    driver = webdriver.Chrome(service=service, options=opt)
+    driver = webdriver.Chrome(
+        executable_path=CHROMEDRIVER,
+        options=opt,
+        service_log_path=driver_log,
+    )
 
-    # 从配置文件中获取测试起始 URL
-    url = rc.get_config('driver','url')
-
-    # 打开指定的 URL
+    url = rc.get_config('driver', 'url')
     driver.get(url)
-
-    # 返回 driver 实例，供测试用例使用
     return driver
+if __name__ == "__main__":
+    print("===== BaseDriver main 调试开始 =====")
 
+    try:
+        driver = BaseDriver()
+        print("✅ driver 创建成功:", driver)
 
-if __name__ == '__main__':
-    # 如果作为主程序运行，则直接调用 BaseDriver 函数创建浏览器实例
-    b = BaseDriver()
-    # url = rc.get_driver('url')
-    # driver.get(url)
-    # return driver
+        # 停 5 秒，肉眼确认浏览器真的起来了
+        import time
+        time.sleep(5)
 
+        driver.quit()
+        print("✅ driver 正常退出")
+
+    except Exception as e:
+        print("❌ 启动失败，请检查错误：")
+        raise

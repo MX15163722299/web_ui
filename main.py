@@ -13,7 +13,7 @@ import threading
 import time
 
 from common.public import Public
-from common.Log import logger
+from common.log import logger
 import os,subprocess
 from common.merge_report import MergeReport
 

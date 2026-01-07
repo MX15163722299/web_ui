@@ -8,10 +8,6 @@
     1-获取工程目录
     2-获取文件名称
     3-生成unittest报告
-    4-
-
-
-
 
 '''
 
@@ -21,7 +17,6 @@ from HTMLTestRunner import HTMLTestReportCN
 from common.log import logger
 
 class Public(object):
-
 
     def get_basedir(self):
         """获取项目的根目录"""
